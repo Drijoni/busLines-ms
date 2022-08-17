@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="447.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.BusLinesController">
+   <left>
+      <AnchorPane prefHeight="452.0" prefWidth="191.0" style="-fx-background-color: orange;" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="GoBackLabel" alignment="CENTER" layoutX="-6.0" layoutY="404.0" onMouseClicked="#goBack" prefHeight="46.0" prefWidth="197.0" style="-fx-background-color: red;" text="Go Back" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Calibri Bold" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+            <ImageView fitHeight="139.0" fitWidth="135.0" layoutX="31.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/fix.png" />
+               </image>
+            </ImageView>
+            <Text fill="WHITE" layoutX="18.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bus Lines Dashboard" wrappingWidth="154.353515625">
+               <font>
+                  <Font name="Calibri Bold" size="18.0" />
+               </font>
+            </Text>
+            <Button fx:id="LocationsBtn" alignment="CENTER" layoutX="-1.0" layoutY="205.0" mnemonicParsing="false" onAction="#showLocationsScreen" prefHeight="37.0" prefWidth="191.0" style="-fx-background-color: #fa8525;" text="Locations" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="CompaniesBtn" layoutY="260.0" mnemonicParsing="false" onAction="#showCompaniesScreen" prefHeight="37.0" prefWidth="192.0" style="-fx-background-color: #fa8525;" text="Companies" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="BusLinesBtn" layoutX="-1.0" layoutY="315.0" mnemonicParsing="false" onAction="#showBusLinesScreen" prefHeight="37.0" prefWidth="191.0" style="-fx-background-color: #fa8525;" text="Bus Lines" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <ImageView fitHeight="18.0" fitWidth="27.0" layoutX="22.0" layoutY="215.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/location.png" />
+               </image></ImageView>
+            <ImageView fitHeight="20.0" fitWidth="23.0" layoutX="21.0" layoutY="269.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/comp.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="21.0" layoutY="324.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/anotherbus.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="34.0" fitWidth="28.0" layoutX="17.0" layoutY="413.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/exit.png" />
+               </image>
+            </ImageView>
+         </children></AnchorPane>
+   </left>
+   <center>
+      <AnchorPane prefHeight="432.0" prefWidth="184.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane fx:id="LocationsScreen" layoutX="2.0" layoutY="4.0" prefHeight="441.0" prefWidth="404.0" visible="false">
+               <children>
+                  <Text layoutX="56.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add / Manage a Location">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="LocationTextField" layoutX="152.0" layoutY="114.0" />
+                  <Button fx:id="LocationUpdateBtn" layoutX="151.0" layoutY="177.0" mnemonicParsing="false" onAction="#updateLocations" prefHeight="29.0" prefWidth="102.0" style="-fx-background-color: #7eadf7;" text="Update" textFill="WHITE">
+                     <effect>
+                        <Glow />
+                     </effect>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Text layoutX="86.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Location:" wrappingWidth="65.13671875">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <TableView fx:id="LocationTable" layoutX="22.0" layoutY="236.0" prefHeight="185.0" prefWidth="353.0">
+                     <columns>
+                        <TableColumn fx:id="idLocationColumn" prefWidth="32.0" text="Id" />
+                        <TableColumn fx:id="locationColumn" prefWidth="320.0" text="Location" />
+                     </columns>
+                  </TableView>
+                  <Button fx:id="LocationDeleteBtn" layoutX="273.0" layoutY="177.0" mnemonicParsing="false" onAction="#deleteLocation" prefHeight="29.0" prefWidth="102.0" style="-fx-background-color: red;" text="Delete" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="LocationInsertBtn" layoutX="22.0" layoutY="177.0" mnemonicParsing="false" onAction="#addLocation" prefHeight="29.0" prefWidth="102.0" style="-fx-background-color: green;" text="Insert" textFill="WHITE">
+                     <effect>
+                        <Glow level="0.36" />
+                     </effect>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="InformationLabel" layoutX="126.0" layoutY="212.0" prefHeight="17.0" prefWidth="153.0">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="CompaniesScreen" prefHeight="453.0" prefWidth="412.0" visible="false">
+               <children>
+                  <Text layoutX="60.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add / Manage Companies">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="CompanyTextField" layoutX="176.0" layoutY="120.0" prefHeight="25.0" prefWidth="146.0" />
+                  <Text layoutX="69.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Company Name: ">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <Button fx:id="CompanyInsertBtn" layoutX="24.0" layoutY="180.0" mnemonicParsing="false" onAction="#addCompany" prefHeight="30.0" prefWidth="106.0" style="-fx-background-color: green;" text="Insert" textFill="WHITE">
+                     <effect>
+                        <Glow />
+                     </effect>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <TableView fx:id="CompanyTable" layoutX="21.0" layoutY="240.0" prefHeight="182.0" prefWidth="356.0">
+                    <columns>
+                      <TableColumn fx:id="idCompanyColumn" prefWidth="38.0" text="id" />
+                        <TableColumn fx:id="companyColumn" prefWidth="317.0" text="Companies" />
+                    </columns>
+                  </TableView>
+                  <Button fx:id="CompanyUpdateBtn" layoutX="154.0" layoutY="181.0" mnemonicParsing="false" onAction="#updateCompanies" prefHeight="28.0" prefWidth="105.0" style="-fx-background-color: #7eadf7;" text="Update" textFill="WHITE">
+                     <effect>
+                        <Glow />
+                     </effect>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="CompanyDeleteBtn" layoutX="275.0" layoutY="182.0" mnemonicParsing="false" onAction="#deleteCompany" prefHeight="28.0" prefWidth="101.0" style="-fx-background-color: red;" text="Delete" textFill="WHITE">
+                     <effect>
+                        <Glow />
+                     </effect>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="BusLinesScreen" layoutX="1.0" layoutY="1.0" prefHeight="454.0" prefWidth="407.0">
+               <children>
+                  <ComboBox fx:id="daysDropdown" layoutX="92.0" layoutY="268.0" prefHeight="25.0" prefWidth="254.0" />
+                  <Text layoutX="123.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add a Bus Line">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font></Text>
+                  <Text layoutX="38.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="From:" wrappingWidth="44.0283203125">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Text>
+                  <ComboBox fx:id="fromDropdown" layoutX="92.0" layoutY="120.0" prefHeight="20.0" prefWidth="111.0" />
+                  <Text layoutX="210.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="to:" wrappingWidth="17.80078125">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Text>
+                  <ComboBox fx:id="toDropdown" layoutX="234.0" layoutY="120.0" prefHeight="20.0" prefWidth="111.0" />
+                  <Text layoutX="35.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Leaves:">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Text>
+                  <ComboBox fx:id="hoursDropdown" layoutX="92.0" layoutY="222.0" prefHeight="25.0" prefWidth="67.0" />
+                  <ComboBox fx:id="minsDropdown" layoutX="172.0" layoutY="222.0" prefHeight="25.0" prefWidth="62.0" />
+                  <Text layoutX="34.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Company:" wrappingWidth="68.130859375">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Text>
+                  <ComboBox fx:id="companyDropdown" layoutX="94.0" layoutY="171.0" prefHeight="25.0" prefWidth="250.0" />
+                  <Button fx:id="AddLinebtn" layoutX="38.0" layoutY="342.0" mnemonicParsing="false" onAction="#Select" prefHeight="39.0" prefWidth="159.0" style="-fx-background-color: green;" text="Add Line" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <Text layoutX="38.0" layoutY="285.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Days:" wrappingWidth="44.0283203125">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="161.0" layoutY="241.0" strokeType="OUTSIDE" strokeWidth="0.0" text=":" textAlignment="CENTER" wrappingWidth="10.6015625">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+                  <Label fx:id="ManageAddedLinesbtn" alignment="CENTER" layoutX="219.0" layoutY="342.0" onMouseClicked="#goToDelete" prefHeight="43.0" prefWidth="155.0" style="-fx-background-color: #8e9af5;" text="Manage Added Lines" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
